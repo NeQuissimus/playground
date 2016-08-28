@@ -1,0 +1,1 @@
+lazy val finch = project.in(file("finch"))
