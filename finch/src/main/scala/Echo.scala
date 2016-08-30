@@ -60,5 +60,5 @@ object Echo extends App {
   } withCharset StandardCharsets.UTF_8
   val postCount = post("echo" :: body.as[Req]) { (r: Req) => Ok(Echo(r.word * r.count)) }
 
-  Await.ready(Http.server.serve(":8081", (simple :+: echoCount :+: postCount).toServiceAs[Application.Json]))
+  val server = Await.ready(Http.server.serve(":8081", (simple :+: echoCount :+: postCount).toServiceAs[Application.Json]))
 }

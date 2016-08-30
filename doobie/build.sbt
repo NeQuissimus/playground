@@ -1,14 +1,16 @@
 import Dependencies._
+import Repositories._
 
-name := "finch"
+name := "doobie"
 version := "1.0.0-SNAPSHOT"
 scalaVersion := Versions.scala
 
 libraryDependencies ++= Seq(
-    finchCore, finchCirce,
-    circeCore, circeGeneric, circeParser
+    doobieCore, doobiePostgres
 )
 
-mainClass in Compile := Some("Echo")
+resolvers += sonatypeSnapshots
+
+mainClass in Compile := None
 
 wartremoverWarnings ++= Warts.unsafe
